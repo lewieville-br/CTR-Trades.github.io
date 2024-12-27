@@ -1,0 +1,482 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #f0f0f0, #e8e8e8);
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+}
+/* Upgraded Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    background: linear-gradient(90deg, #4e54c8, #8f94fb);
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+}
+
+.header:hover {
+    background: linear-gradient(90deg, #3c3f91, #7a7fe7);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.header .logo {
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.header .logo:hover {
+    transform: scale(1.1);
+    color: #ffd700;
+}
+
+.nav a {
+    margin-right: 1.5rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #fff;
+    position: relative;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav a:hover {
+    color: #ffd700;
+    transform: translateY(-2px);
+}
+
+.nav a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 3px;
+    background: #ffd700;
+    transition: width 0.3s ease;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+.nav a:hover::after {
+    width: 100%;
+}
+
+.menu-btn {
+    background: none;
+    color: #fff;
+    font-size: 2rem;
+    display: none;
+}
+
+.menu-btn:hover {
+    color: #ffd700;
+    transform: rotate(90deg);
+    transition: transform 0.4s ease, color 0.3s ease;
+}
+
+/* For smaller screens */
+@media (max-width: 768px) {
+    .nav a {
+        display: none;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5rem 2rem;
+    background: linear-gradient(135deg, #ff7eb3, #ff758c);
+    color: #fff;
+    animation: fadeIn 1.2s ease-in-out;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.hero-content h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.hero-content .highlight {
+    color: #ffd700;
+}
+
+.hero-content p {
+    margin: 1rem 0;
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+.cta-buttons .primary-btn,
+.cta-buttons .secondary-btn {
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    margin-right: 1rem;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.primary-btn {
+    background: linear-gradient(90deg, #ff7e5f, #feb47b);
+    color: #fff;
+    border: none;
+}
+
+.primary-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(255, 94, 87, 0.5);
+}
+
+.secondary-btn {
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid #ffd700;
+}
+
+.secondary-btn:hover {
+    background-color: #ffd700;
+    color: #222;
+}
+
+/* Features Section */
+.features {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, #43cea2, #185a9d);
+    color: #fff;
+}
+
+.features h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.features .highlight {
+    color: #ffd700;
+}
+
+.features p {
+    font-size: 1rem;
+    opacity: 0.8;
+    margin-bottom: 2rem;
+}
+
+.steps {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.step {
+    text-align: center;
+    max-width: 200px;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    padding: 2rem;
+    border-radius: 15px;
+    color: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.step:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.step .icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #ffd700;
+}
+
+.step h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Pricing Section */
+.pricing {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, #43cea2, #185a9d);
+    color: #000000;
+}
+
+.pricing h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    font-weight: bold;
+}
+
+.pricing-table {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.pricing-card {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    padding: 2rem;
+    text-align: center;
+    width: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pricing-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.pricing-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.pricing-card p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+}
+
+.pricing-card ul {
+    list-style: none;
+    text-align: left;
+    padding: 0;
+    margin-bottom: 2rem;
+}
+
+.pricing-card ul li {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.pricing-card ul li::before {
+    content: '\2713';
+    color: #43cea2;
+    font-weight: bold;
+}
+
+.pricing-card button {
+    padding: 0.75rem 2rem;
+    border-radius: 25px;
+    background: linear-gradient(90deg, #ff7e5f, #feb47b);
+    color: #fff;
+    font-size: 1rem;
+}
+
+.pricing-card button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(255, 126, 95, 0.5);
+}
+
+/* Testimonials Section */
+.testimonials {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: #fff;
+}
+
+.testimonials h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    font-weight: bold;
+}
+
+.testimonial-cards {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.testimonial-card {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    padding: 2rem;
+    text-align: center;
+    width: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.testimonial-card h3 {
+    color: black;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.testimonial-card p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: #333;
+}/* FAQ Section */
+.faq {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: #f9f9f9;
+    color: #333;
+}
+
+.faq h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    font-weight: bold;
+}
+
+.faq-item {
+    text-align: left;
+    max-width: 800px;
+    margin: 1rem auto;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.faq-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.faq-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #6a11cb;
+}
+
+.faq-item p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+}
+/* Design Journey CTA Section */
+.cta {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    color: #fff;
+}
+
+.cta h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+
+.cta h2 .highlight {
+    color: #ffd700;
+}
+
+.cta p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.cta button {
+    padding: 0.75rem 2rem;
+    border-radius: 25px;
+    font-size: 1rem;
+    background: linear-gradient(90deg, #43cea2, #185a9d);
+    color: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(67, 206, 162, 0.5);
+}
+
+/* Footer */
+.footer {
+    padding: 2rem;
+    background: #222;
+    color: #fff;
+    text-align: center;
+}
+
+.footer .footer-content {
+    margin-bottom: 1rem;
+}
+
+.footer .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.footer .footer-nav a {
+    margin: 0 0.5rem;
+    color: #ffd700;
+    font-size: 0.9rem;
+}
+
+.footer .footer-nav a:hover {
+    text-decoration: underline;
+}
+
+.footer-legal a {
+    margin: 0 0.5rem;
+    font-size: 0.8rem;
+    color: #bbb;
+}
+
+.footer-legal a:hover {
+    color: #ffd700;
+    text-decoration: underline;
+}
