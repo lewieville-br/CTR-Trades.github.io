@@ -44,7 +44,7 @@ header {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-h1, h2 {
+h1, h2, h3 {
     text-align: center;
     color: #2575fc;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
