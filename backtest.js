@@ -29,17 +29,23 @@ const formatCurrency = (value) => {
     return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(value);
 };
 
-// Update bull run data table
-function updateBullRunData(bullRunData, spendAmount, leverage, tableId) {
+// Update bull run data table and calculate total profit and percentage
+function updateBullRunData(bullRunData, spendAmount, leverage, tableId, totalProfitId, percentageProfitId) {
     const tableBody = document.getElementById(tableId).getElementsByTagName('tbody')[0];
-    tableBody.innerHTML = '';
+    let totalProfit = 0; // Initialize total profit
+    let totalSpendAmount = 0; // Initialize total spend amount
+    tableBody.innerHTML = ''; // Clear previous table data
 
     bullRunData.forEach(item => {
-        const totalSpendAmt = spendAmount * leverage;
-        const btcBuyQty = totalSpendAmt / item.btcBuyPrice;
-        const totalBtcSell = btcBuyQty * item.btcSellPrice;
-        const profit = totalBtcSell - totalSpendAmt;
+        const totalSpendAmt = spendAmount * leverage; // Total spend per entry
+        const btcBuyQty = totalSpendAmt / item.btcBuyPrice; // BTC quantity purchased
+        const totalBtcSell = btcBuyQty * item.btcSellPrice; // Total BTC sell amount
+        const profit = totalBtcSell - totalSpendAmt; // Profit calculation
 
+        totalProfit += profit; // Accumulate total profit
+        totalSpendAmount += totalSpendAmt; // Accumulate total spend amount
+
+        // Create table row
         const row = document.createElement('tr');
         row.innerHTML = `
             <td>${item.purchaseDate}</td>
@@ -56,16 +62,24 @@ function updateBullRunData(bullRunData, spendAmount, leverage, tableId) {
         `;
         tableBody.appendChild(row);
     });
+
+
+    // Update total profit and percentage in the DOM
+    document.getElementById(totalProfitId).textContent = `Total Profit: ${formatCurrency(totalProfit)}`;
 }
 
 // Update data based on user input
 function updateData() {
     const spendAmount = parseFloat(document.getElementById('spendAmount').value) || 0;
     const leverage = parseFloat(document.getElementById('leverage').value) || 1;
-    updateBullRunData(data.bullRun2017, spendAmount, leverage, 'bullRun2017');
-    updateBullRunData(data.bullRun2021, spendAmount, leverage, 'bullRun2021');
-    updateBullRunData(data.bullRun2025, spendAmount, leverage, 'bullRun2025');
+    updateBullRunData(data.bullRun2017, spendAmount, leverage, 'bullRun2017', 'totalProfit2017', 'percentageProfit2017');
+    updateBullRunData(data.bullRun2021, spendAmount, leverage, 'bullRun2021', 'totalProfit2021', 'percentageProfit2021');
+    updateBullRunData(data.bullRun2025, spendAmount, leverage, 'bullRun2025', 'totalProfit2025', 'percentageProfit2025');
 }
 
 // Initialize the data
 updateData();
+
+// Add event listeners for inputs
+document.getElementById('spendAmount').addEventListener('input', updateData);
+document.getElementById('leverage').addEventListener('input', updateData);
