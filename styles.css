@@ -87,7 +87,6 @@ button {
 .nav a:hover::after {
     width: 100%;
 }
-
 .slogan {
     font-weight: bolder;
     position: absolute;
@@ -329,6 +328,9 @@ button {
 }
 
 /* Testimonials Section */
+#seemore:hover{
+    text-decoration: underline;
+}
 .testimonials {
     text-align: center;
     padding: 4rem 2rem;
