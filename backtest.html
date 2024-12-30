@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crypto Investment Tracker</title>
     <link rel="stylesheet" href="backtest.css">
-    <link rel="icon" href="btc.png" type="image/png">
+    <link rel="icon" href="imgs/btc.png" type="image/png">
 
 </head>
 <body>
@@ -13,6 +13,7 @@
         <a href="index.html" style="cursor: pointer; text-decoration: none;">
             <div class="logo">CTR Trades</div>
         </a>
+        <img src="btc.png" style="height: 100px;">
         <nav class="nav">
             <a href="index.html">Start Now</a>
         </nav>
@@ -20,6 +21,7 @@
     <div class="container">
         <h1>Proven Success Rate of Previous Bull Runs</h1>
         <h3>Backtest my strategy through past bull runs</h3>
+        <h3 style="color: green;">Click on a purchase date!</h3>
 
         <!-- User Input for Spend Amount -->
         <div>
@@ -56,7 +58,7 @@
                         <th>Profit</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody style="cursor: pointer;">
                     <!-- 2017 Bull Run data will be injected here -->
                 </tbody>
             </table>
@@ -86,7 +88,7 @@
                         <th>Profit</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody style="cursor: pointer;">
                     <!-- 2021 Bull Run data will be injected here -->
                 </tbody>
             </table>
@@ -98,9 +100,9 @@
                 2025 Bull Run Success Rate
             </h2>
             <div>
-            <label for="currentAmount">BTC Sell Price for 2025 data:</label>
-            <input type="number" id="currentAmount" value="150000" onchange="updateData()">
-        </div>
+                <label for="currentAmount">BTC Sell Price for 2025 data:</label>
+                <input type="number" id="currentAmount" value="150000" onchange="updateData()">
+            </div>
             <div style="font-size: 16px; margin-bottom: 10px;">
                 <span id="totalProfit2025" style="font-weight: bold; color: green;">Total Profit: $0.00</span>
             </div>
@@ -120,15 +122,20 @@
                         <th>Profit</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody style="cursor: pointer;">
                     <!-- 2025 Bull Run data will be injected here -->
                 </tbody>
             </table>
         </div>
     </div>
 
-    <script src="backtest.js"></script>
-
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img id="modalImage" src="" alt="Purchase Date Image">
+        </div>
+    </div>
+    
     <footer class="footer">
         <div class="footer-content">
             <div class="logo">CTR Trades</div>
@@ -141,5 +148,7 @@
             <a href="toc.html">Terms & Conditions</a>
         </div>
     </footer>
+    <script src="backtest.js"></script>
+
 </body>
 </html>
