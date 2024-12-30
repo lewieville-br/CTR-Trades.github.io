@@ -1,3 +1,4 @@
+const BTCPrice = document.getElementById("currentAmount").value
 // Data for the bull runs
 const data = {
     bullRun2017: [
@@ -16,11 +17,11 @@ const data = {
         { purchaseDate: 'Monday, October 12, 2020', btcBuyPrice: 11375, sellDate: 'Monday, April 12, 2021', btcSellPrice: 60000 }
     ],
     bullRun2025: [
-        { purchaseDate: 'Monday, January 16, 2023', btcBuyPrice: 20877, sellDate: 'Monday, September 1, 2025', btcSellPrice: 150000 },
-        { purchaseDate: 'Monday, June 26, 2023', btcBuyPrice: 30280, sellDate: 'Monday, September 1, 2025', btcSellPrice: 150000 },
-        { purchaseDate: 'Monday, October 2, 2023', btcBuyPrice: 28037, sellDate: 'Monday, September 1, 2025', btcSellPrice: 150000 },
-        { purchaseDate: 'Monday, February 12, 2024', btcBuyPrice: 40823, sellDate: 'Monday, September 1, 2025', btcSellPrice: 150000 },
-        { purchaseDate: 'Monday, September 23, 2024', btcBuyPrice: 63600, sellDate: 'Monday, September 1, 2025', btcSellPrice: 150000 }
+        { purchaseDate: 'Monday, January 16, 2023', btcBuyPrice: 20877, sellDate: 'Monday, September 1, 2025', btcSellPrice: BTCPrice },
+        { purchaseDate: 'Monday, June 26, 2023', btcBuyPrice: 30280, sellDate: 'Monday, September 1, 2025', btcSellPrice: BTCPrice },
+        { purchaseDate: 'Monday, October 2, 2023', btcBuyPrice: 28037, sellDate: 'Monday, September 1, 2025', btcSellPrice: BTCPrice },
+        { purchaseDate: 'Monday, February 12, 2024', btcBuyPrice: 40823, sellDate: 'Monday, September 1, 2025', btcSellPrice: BTCPrice },
+        { purchaseDate: 'Monday, September 23, 2024', btcBuyPrice: 63600, sellDate: 'Monday, September 1, 2025', btcSellPrice: BTCPrice }
     ]
 };
 
