@@ -1,4 +1,3 @@
-const BTCPrice = document.getElementById("currentAmount").value
 // Data for the bull runs
 const data = {
     bullRun2017: [
