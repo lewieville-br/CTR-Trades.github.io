@@ -83,6 +83,39 @@ function updateData() {
     updateBullRunData(data.bullRun2021, spendAmount, leverage, 'bullRun2021', 'totalProfit2021', 'percentageProfit2021');
     updateBullRunData(data.bullRun2025, spendAmount, leverage, 'bullRun2025', 'totalProfit2025', 'percentageProfit2025');
 }
+// Function to handle modal display
+document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+    const closeBtn = document.querySelector('.modal .close');
+
+    // Add event listener to purchase dates
+    document.querySelectorAll('td:first-child').forEach(cell => {
+        cell.addEventListener('click', () => {
+            const purchaseDate = cell.textContent.trim();
+
+            // Update modal image src (replace 'path/to/images/' with your actual image path)
+            modalImage.src = purchaseDateImages[purchaseDate];
+            modal.style.display = 'block';
+                        
+
+            // Show the modal
+            modal.style.display = 'block';
+        });
+    });
+
+    // Close modal on close button click
+    closeBtn.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+
+    // Close modal on outside click
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+});
 
 
 // Initialize the data
@@ -91,3 +124,73 @@ updateData();
 // Add event listeners for inputs
 document.getElementById('spendAmount').addEventListener('input', updateData);
 document.getElementById('leverage').addEventListener('input', updateData);
+
+// Map of purchase dates to corresponding image file names
+const purchaseDateImages = {
+    "Monday, October 5, 2015": "images/october_5_2015.jpg",
+    "Monday, February 15, 2016": "images/february_15_2016.jpg",
+    "Monday, September 5, 2016": "images/september_5_2016.jpg",
+    "Monday, February 6, 2017": "images/february_6_2017.jpg",
+    "Monday, April 10, 2017": "images/april_10_2017.jpg",
+    "Monday, August 7, 2017": "images/august_7_2017.jpg",
+    "Monday, October 2, 2017": "images/october_2_2017.jpg",
+    "Monday, February 11, 2019": "images/february_11_2019.jpg",
+    "Monday, January 13, 2020 (COVID)": "images/january_13_2020_covid.jpg",
+    "Monday, May 4, 2020": "images/may_4_2020.jpg",
+    "Monday, October 12, 2020": "images/october_12_2020.jpg",
+    "Monday, January 16, 2023": "images/january_16_2023.jpg",
+    "Monday, June 26, 2023": "images/june_26_2023.jpg",
+    "Monday, October 2, 2023": "images/october_2_2023.jpg",
+    "Monday, February 12, 2024": "images/february_12_2024.jpg",
+    "Monday, September 23, 2024": "images/september_23_2024.jpg"
+};
+
+
+// Function to handle modal display
+function initializeModalListeners() {
+    const modal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+    const closeBtn = document.querySelector('.modal .close');
+
+    // Remove existing event listeners to prevent duplication
+    document.querySelectorAll('td:first-child').forEach(cell => {
+        cell.replaceWith(cell.cloneNode(true)); // Replace with a clone to remove old listeners
+    });
+
+    // Add event listener to purchase dates
+    document.querySelectorAll('td:first-child').forEach(cell => {
+        cell.addEventListener('click', () => {
+            const purchaseDate = cell.textContent.trim();
+
+            // Check if an image is mapped to the purchase date
+            if (purchaseDateImages[purchaseDate]) {
+                modalImage.src = purchaseDateImages[purchaseDate];
+                modal.style.display = 'block';
+            } else {
+                alert("No image available for this purchase date.");
+            }
+        });
+    });
+
+    // Close modal on close button click
+    closeBtn.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+
+    // Close modal on outside click
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+}
+
+// Wrap the original updateData function to include re-initialization
+const originalUpdateData = updateData;
+updateData = function () {
+    originalUpdateData(); // Call the original function
+    initializeModalListeners(); // Reinitialize modal listeners for updated rows
+};
+
+// Initialize modal listeners on page load
+document.addEventListener('DOMContentLoaded', initializeModalListeners);
