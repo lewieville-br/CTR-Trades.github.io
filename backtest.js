@@ -11,7 +11,7 @@ const data = {
     ],
     bullRun2021: [
         { purchaseDate: 'Monday, February 11, 2019', btcBuyPrice: 3648, sellDate: 'Monday, April 12, 2021', btcSellPrice: 60000 },
-        { purchaseDate: 'Monday, January 13, 2020', btcBuyPrice: 8029, sellDate: 'Monday, April 12, 2021', btcSellPrice: 60000 },
+        { purchaseDate: 'Monday, January 13, 2020 (COVID)', btcBuyPrice: 8029, sellDate: 'Monday, January 13, 2020', btcSellPrice: 8029 },
         { purchaseDate: 'Monday, May 4, 2020', btcBuyPrice: 8968, sellDate: 'Monday, April 12, 2021', btcSellPrice: 60000 },
         { purchaseDate: 'Monday, October 12, 2020', btcBuyPrice: 11375, sellDate: 'Monday, April 12, 2021', btcSellPrice: 60000 }
     ],
