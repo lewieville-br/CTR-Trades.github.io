@@ -15,15 +15,14 @@ function debounce(func, wait) {
 const handleScroll = debounce(() => {
     const header = document.querySelector('.header');
     if (window.scrollY > 50) {
-        header.style.background = '#1A1A1A';
+        header.style.background = 'linear-gradient(90deg, #4e54c8, #2575fc)';
         header.style.boxShadow = '0px 4px 10px rgba(0, 0, 0, 0.5)';
     } else {
-        header.style.background = 'transparent';
+        header.style.background = 'linear-gradient(135deg, #43cea2, #185a9d)';
         header.style.boxShadow = 'none';
     }
 }, 100);
 window.addEventListener('scroll', handleScroll);
-
 // Reusable Smooth Scroll Function
 function smoothScrollTo(targetId) {
     const targetElement = document.getElementById(targetId);
