@@ -460,7 +460,7 @@ button {
 /* Footer */
 .footer {
     padding: 2rem;
-    background: #222;
+    background: linear-gradient(135deg, #43cea2, #6c6a69);
     color: #fff;
     text-align: center;
 }
