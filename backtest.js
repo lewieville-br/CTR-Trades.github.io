@@ -1,3 +1,21 @@
+
+const videoModal = document.getElementById('miniModal');
+const video = document.getElementById('myVideo');
+const closeModal = document.getElementById('closeModal');
+
+videoModal.addEventListener('click', function() {
+    video.style.display = 'block';
+    videoModal.style.display = 'none';
+    closeModal.style.display = 'block';
+});
+
+closeModal.addEventListener('click', function() {
+    video.style.display = 'none';
+    videoModal.style.display = 'block';
+    closeModal.style.display = 'none';
+});
+
+
 // Data for the bull runs
 const data = {
     bullRun2017: [
