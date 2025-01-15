@@ -42,6 +42,53 @@ header {
     background: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    align-items: center;
+
+}
+.container video {
+    display: none;
+    position: absolute; /* Allows precise positioning */
+    top: 52%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    bottom: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for the video’s size */
+    width: 26%;
+    max-width: 100%; /* Ensures it doesn’t exceed the container */
+    height: auto;    /* Maintains aspect ratio */
+    border: 10px solid transparent; /* Initial border */
+    border-radius: 10px; /* Rounded corners for a modern look */
+    background: linear-gradient(90deg, #ff7eb3, #ff758c, #ff7eb3);
+    background-size: 200% 200%;
+    animation: border-animation 4s linear infinite;
+    
+}
+
+/* Keyframes for the border animation */
+@keyframes border-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+#closeModal {
+    position: absolute;
+    scale: 3;
+    top: 30%;
+    right: 50%;
+    color: #333;
+    font-size: 1.5em;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#closeModal:hover {
+    color: #ff0000;
 }
 
 h1, h2, h3 {
@@ -246,4 +293,3 @@ button:hover, a:hover {
     text-decoration: underline;
     color: #ffd700;
 }
-
